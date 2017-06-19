@@ -1,0 +1,93 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	controllerName="com.lbrandsHelloLBrands.controller.v1" displayBlock="true">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<IconTabBar>
+						<items>
+							<IconTabFilter text="Static List">
+								<List noDataText="Drop list items here" id="__list0">
+									<items>
+										<StandardListItem type="Navigation" title="List Item 1" description="Description text" icon="sap-icon://picture"/>
+										<StandardListItem type="Navigation" title="List Item 2" description="Description text" icon="sap-icon://picture"/>
+										<StandardListItem type="Navigation" title="List Item 3" description="Description text" icon="sap-icon://picture"/></items>
+								</List>
+							</IconTabFilter>
+							<IconTabFilter text="Dynamic List with JSON Binding">
+								<List items="{local>/data}">
+									<StandardListItem title="{local>workbookname}" description="{local>templatename}"/>
+								</List>
+							</IconTabFilter>
+							<IconTabFilter text="Table with OData Binding">
+								<SearchField width="90%" class="sapUiSmallMargin" search="onSearch" placeholder="Search by FirstName"/>
+								<Table noDataText="Drop column list items here and columns in the area above" id="__table0" items="{/Employees}">
+									<items>
+										<ColumnListItem id="__item0">
+											<cells>
+												<Text text="{EmployeeID}"/>
+												<Text text="{LastName}"/>
+												<Text text="{FirstName}"/>
+												<Text text="{LastName}, {FirstName}"/>
+												<Text text="{Title}"/>
+												<Text text="{ path: 'EmployeeID', formatter: '.formatActiveEmployeeText' }"/>
+												<Text text="{= ${EmployeeID} > 50 ? 'Error' : 'Success' }"/>
+												<Select>
+													<core:Item key="k1" text="Playful Sexy"/>
+													<core:Item key="k2" text="Sport"/>
+												</Select>
+											</cells>
+										</ColumnListItem>
+									</items>
+									<columns>
+										<Column id="__column0">
+											<header>
+												<Label text="Employee ID" id="__label0"/>
+											</header>
+										</Column>
+										<Column id="__column1">
+											<header>
+												<Label id="__label1" text="LastName"/>
+											</header>
+										</Column>
+										<Column id="__column2">
+											<header>
+												<Label text="FirstName" id="__label2"/>
+											</header>
+										</Column>
+										<Column id="__column4">
+											<header>
+												<Label text="FullName" id="__label4"/>
+											</header>
+										</Column>
+										<Column id="__column3">
+											<header>
+												<Text text="Title" id="__text6"/>
+											</header>
+										</Column>
+										<Column id="__column5">
+											<header>
+												<Text text="IsActive" id="__text7"/>
+											</header>
+										</Column>
+										<Column id="__column6">
+											<header>
+												<Text text="IsActive2" id="__text8"/>
+											</header>
+										</Column>
+										<Column id="__column7">
+											<header>
+												<Text text="Emotional Space" id="__text9"/>
+											</header>
+										</Column>
+									</columns>
+								</Table>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
